@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter text to predict its emotion:</h1>
+        <form action="/predict" method="post">
+            <textarea id="user-input" name="text" rows="4" cols="50" required></textarea>
+            <button type="submit">Predict Emotion</button>
+        </form>
+    
+        <div class="emotion-icons">
+            <div class="icon-container">
+                <div class="icon" data-emotion="joy">😊</div>
+                <p class="icon-label">Joy</p>
+            </div>
+            <div class="icon-container">
+                <div class="icon" data-emotion="sadness">😢</div>
+                <p class="icon-label">Sadness</p>
+            </div>
+            <div class="icon-container">
+                <div class="icon" data-emotion="love">❤️</div>
+                <p class="icon-label">Love</p>
+            </div>
+            <div class="icon-container">
+                <div class="icon" data-emotion="anger">😠</div>
+                <p class="icon-label">Anger</p>
+            </div>
+            <div class="icon-container">
+                <div class="icon" data-emotion="fear">😨</div>
+                <p class="icon-label">Fear</p>
+            </div>
+            <div class="icon-container">
+                <div class="icon" data-emotion="surprise">😲</div>
+                <p class="icon-label">Surprise</p>
+            </div>
+        </div>
+
+        {% if text %}
+            <div class="result-text">
+                <h2>
+                    <span class="result-label">Text:</span> 
+                    <span class="result-value-text">{{ text }}</span>
+                </h2>
+                <h2>
+                    <span class="result-label">Detected Emotion:</span> 
+                    <span class="result-value-emotion">{{ emotion }}</span>
+                </h2>
+            </div>
+        {% endif %}
+
+        <script>
+            let detectedEmotion = "{{ emotion if emotion else '' }}";
+        </script>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
