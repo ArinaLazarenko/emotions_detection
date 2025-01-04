@@ -57,8 +57,20 @@
         <script>
             let detectedEmotion = "{{ emotion if emotion else '' }}";
         </script>
+
+        <div>
+            <canvas id="plot" width="1100" height="1000"></canvas>
+            <div id="tooltip"></div>
+            <script src="{{ url_for('static', filename='plot.js') }}"></script>
+            <script>
+                {% autoescape false %}
+                {{ js_calls }}
+                {% endautoescape %}
+            </script>
+        </div>
+
+
     </div>
-    
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>

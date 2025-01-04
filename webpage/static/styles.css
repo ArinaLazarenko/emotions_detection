@@ -41,7 +41,6 @@ button {
     cursor: pointer;
     margin-top: 20px;
     font-size: 1.2rem; /* Adjust font size here */
-    /* font-weight: bold; */
 }
 button:hover {
     background-color: #004494;
@@ -83,18 +82,31 @@ h1, h2 {
 
 /* result text */
 .result-label {
-    color: #555; /* Dark gray for labels */
+    color: #555; 
     font-weight: bold;
     font-size: 1.2rem;
 }
 .result-value-text {
-    color: #555; /* Red color for the dynamic text */
+    color: #555; 
     font-weight: normal;
     font-size: 1.2rem;
 }
 .result-value-emotion {
-    color: #0056b3; /* Red color for the dynamic text */
+    color: #0056b3; 
     font-weight: bold;
     font-size: 1.2rem;
     text-transform: uppercase;
+}
+/* canvas */
+canvas {
+    border: 1px solid black;
+}
+#tooltip {
+    position: absolute;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 14px;
+    z-index: 10;
 }
